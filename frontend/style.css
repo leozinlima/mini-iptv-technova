@@ -1,0 +1,54 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, Segoe UI, Roboto, sans-serif; }
+body { background: #0f1220; color: #e8eaf2; min-height: 100vh; }
+.oculto { display: none !important; }
+.mono { font-family: ui-monospace, Consolas, monospace; }
+.peq { font-size: 13px; color: #aab; }
+
+/* ---------- LOGIN ---------- */
+#tela-login { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card { width: 360px; text-align: center; }
+.login-card h1 { font-size: 26px; margin-bottom: 4px; }
+.login-card h1 span { color: #6cf; }
+.sub { color: #9aa; font-size: 13px; margin-bottom: 18px; }
+.dica { margin-top: 12px; font-size: 12px; color: #889; }
+.erro { color: #ff6b6b; font-size: 13px; min-height: 18px; margin-top: 8px; }
+
+/* ---------- CARD ---------- */
+.card { background: #191d2e; border: 1px solid #2a3048; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+
+/* ---------- INPUTS / BOTOES ---------- */
+input { width: 100%; padding: 11px; margin: 6px 0; border-radius: 8px; border: 1px solid #333a55; background: #0f1220; color: #fff; }
+button { background: #4a7dff; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 6px; }
+button:hover { background: #3a6def; }
+button:disabled { background: #444; cursor: not-allowed; }
+button.secundario { background: #2a3048; }
+button.secundario:hover { background: #363d5a; }
+
+/* ---------- HEADER ---------- */
+header { display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; background: #141828; border-bottom: 1px solid #2a3048; flex-wrap: wrap; gap: 8px; }
+.badge { background: #2a3048; padding: 3px 10px; border-radius: 20px; font-size: 12px; margin-left: 8px; }
+.badge.perfil { background: #294; }
+main { padding: 22px; max-width: 1000px; margin: 0 auto; }
+h2 { margin-bottom: 12px; } h3 { margin: 16px 0 8px; }
+.aviso { color: #ffcf5c; font-size: 14px; min-height: 20px; margin-bottom: 10px; }
+
+/* ---------- GRID DE CANAIS ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.canal { border-left: 5px solid #555; }
+.canal.verde { border-left-color: #2ecc71; }
+.canal.azul  { border-left-color: #4a7dff; }
+.canal.cinza { border-left-color: #666; opacity: .7; }
+.canal-topo { display: flex; justify-content: space-between; align-items: center; }
+.desc { color: #aab; font-size: 13px; margin: 6px 0; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; }
+.tag.verde { background: #14432a; color: #2ecc71; }
+.tag.azul  { background: #16264d; color: #6cf; }
+.tag.cinza { background: #333; color: #999; }
+
+/* ---------- ADMIN ---------- */
+.status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin: 10px 0; }
+.status-grid > div { background: #0f1220; padding: 12px; border-radius: 8px; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+th, td { text-align: left; padding: 7px; border-bottom: 1px solid #2a3048; }
+.form-linha { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.form-linha input { width: auto; flex: 1; min-width: 120px; }

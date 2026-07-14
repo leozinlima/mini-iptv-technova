@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-IPTV TechNova</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TELA DE LOGIN ================= -->
+  <div id="tela-login" class="tela">
+    <div class="card login-card">
+      <h1>Mini-IPTV <span>TechNova</span></h1>
+      <p class="sub">FRC 2026.1 - Multicast com Controle de Banda WAN</p>
+      <p style="color:#9aa;font-size:13px;margin:12px 0">Você será levado ao servidor de autenticação (OAuth2 / OpenID Connect) para entrar.</p>
+      <button onclick="iniciarLogin()">Entrar</button>
+      <p id="erro-login" class="erro"></p>
+      <p class="dica">No login use: <b>joao/123</b> (WAN), <b>pedro/123</b> (LAN), <b>admin/admin</b></p>
+    </div>
+  </div>
+
+  <!-- ================= APLICACAO ================= -->
+  <div id="tela-app" class="tela oculto">
+    <header>
+      <div>
+        <b>Mini-IPTV TechNova</b>
+        <span id="info-usuario" class="badge"></span>
+        <span id="info-perfil" class="badge perfil"></span>
+      </div>
+      <div>
+        <button id="btn-admin" class="secundario oculto" onclick="mostrarAdmin()">Painel Admin</button>
+        <button class="secundario" onclick="baixarPlaylist()">Baixar playlist .m3u</button>
+        <button class="secundario" onclick="sair()">Sair</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="area-canais">
+        <h2>Canais disponíveis</h2>
+        <p class="aviso" id="aviso-wan"></p>
+        <div id="lista-canais" class="grid"></div>
+      </section>
+
+      <!-- Painel de player / instrucoes -->
+      <section id="area-player" class="card oculto">
+        <h2 id="player-titulo"></h2>
+        <p id="player-info"></p>
+        <p class="mono" id="player-url"></p>
+        <p>O <b>VLC</b> abre automaticamente. Se não abrir, clique no botão abaixo (ou cole o endereço no VLC: Mídia → Abrir fluxo de rede).</p>
+        <button onclick="abrirNoVlc()">Abrir no VLC</button>
+        <button class="secundario" onclick="pararDeAssistir()">Parar de assistir</button>
+      </section>
+
+      <!-- Painel administrativo -->
+      <section id="area-admin" class="card oculto">
+        <h2>Painel do Administrador</h2>
+        <button class="secundario" onclick="carregarStatus()">Atualizar status</button>
+        <div id="admin-status"></div>
+
+        <h3>Vídeos</h3>
+        <div class="form-linha">
+          <input type="file" id="up-file" accept="video/*">
+          <button onclick="uploadVideo()">Enviar arquivo</button>
+          <span id="up-msg" class="peq"></span>
+        </div>
+        <div class="form-linha">
+          <input id="nv-titulo" placeholder="Título do vídeo">
+          <input id="nv-orig" placeholder="arquivo_original.mp4">
+          <input id="nv-wan" placeholder="versão WAN (opcional)">
+          <button onclick="cadastrarVideo()">Cadastrar vídeo</button>
+        </div>
+        <div id="lista-videos"></div>
+
+        <h3>Cadastrar novo canal</h3>
+        <div class="form-linha">
+          <input id="nc-num" type="number" placeholder="Nº canal" style="width:90px">
+          <input id="nc-nome" placeholder="Nome do canal">
+          <select id="nc-video"></select>
+          <button onclick="criarCanal()">Cadastrar canal</button>
+        </div>
+        <div id="lista-canais-admin"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

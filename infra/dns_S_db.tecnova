@@ -1,0 +1,22 @@
+$TTL 86400
+; ==========================================================================
+; Zona DIRETA tecnova.com.br  ->  roda no host S (BIND9), arquivo /etc/bind/db.tecnova
+; S, R1 e R2 tem IP estatico mapeado no DNS (exigencia do enunciado).
+; ==========================================================================
+@   IN SOA s.tecnova.com.br. root.s.tecnova.com.br. (
+        2026070901  ; serial (aumente a cada mudanca)
+        21600       ; refresh
+        1800        ; retry
+        604800      ; expire
+        86400 )     ; minimum
+
+        IN NS  s.tecnova.com.br.
+        IN MX  10 s.tecnova.com.br.
+
+; ---- maquinas com IP estatico ----
+s       IN A 172.16.0.2      ; servidor: DNS + SMTP + VLC + backend Mini-IPTV
+dns     IN A 172.16.0.2
+mail    IN A 172.16.0.2
+iptv    IN A 172.16.0.1      ; portal/API Gateway (Apache no R1)
+r1      IN A 172.16.0.1      ; roteador R1 (lado LAN #1)
+r2      IN A 192.168.0.1     ; roteador R2 (lado LAN #2)

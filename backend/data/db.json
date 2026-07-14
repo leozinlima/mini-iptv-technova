@@ -1,0 +1,290 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "name": "Administrador",
+      "role": "admin"
+    },
+    {
+      "username": "joao",
+      "password": "123",
+      "name": "Joao (cliente X - WAN)",
+      "role": "user"
+    },
+    {
+      "username": "maria",
+      "password": "123",
+      "name": "Maria (cliente Y - WAN)",
+      "role": "user"
+    },
+    {
+      "username": "pedro",
+      "password": "123",
+      "name": "Pedro (cliente Z - LAN)",
+      "role": "user"
+    },
+    {
+      "username": "ana",
+      "password": "123",
+      "name": "Ana (cliente W - LAN)",
+      "role": "user"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "titulo": "Big Buck Bunny - Abertura",
+      "descricao": "Filme",
+      "original": "filme1_hd.mp4",
+      "wan": "filme1_ld.mp4"
+    },
+    {
+      "id": 2,
+      "titulo": "Big Buck Bunny - A Borboleta",
+      "descricao": "Filme",
+      "original": "filme2_hd.mp4",
+      "wan": "filme2_ld.mp4"
+    },
+    {
+      "id": 3,
+      "titulo": "Big Buck Bunny - O Esquilo",
+      "descricao": "Filme",
+      "original": "filme3_hd.mp4",
+      "wan": "filme3_ld.mp4"
+    },
+    {
+      "id": 4,
+      "titulo": "Big Buck Bunny - A Vinganca",
+      "descricao": "Filme",
+      "original": "filme4_hd.mp4",
+      "wan": "filme4_ld.mp4"
+    },
+    {
+      "id": 5,
+      "titulo": "Big Buck Bunny - O Final",
+      "descricao": "Filme",
+      "original": "filme5_hd.mp4",
+      "wan": "filme5_ld.mp4"
+    },
+    {
+      "id": 6,
+      "titulo": "Sintel - O Filhote",
+      "descricao": "Animacao",
+      "original": "aula1_hd.mp4",
+      "wan": "aula1_ld.mp4"
+    },
+    {
+      "id": 7,
+      "titulo": "Sintel - A Jornada",
+      "descricao": "Animacao",
+      "original": "aula2_hd.mp4",
+      "wan": "aula2_ld.mp4"
+    },
+    {
+      "id": 8,
+      "titulo": "Sintel - A Caverna",
+      "descricao": "Animacao",
+      "original": "aula3_hd.mp4",
+      "wan": "aula3_ld.mp4"
+    },
+    {
+      "id": 9,
+      "titulo": "Sintel - O Reencontro",
+      "descricao": "Animacao",
+      "original": "aula4_hd.mp4",
+      "wan": "aula4_ld.mp4"
+    },
+    {
+      "id": 10,
+      "titulo": "Sintel - A Batalha",
+      "descricao": "Animacao",
+      "original": "aula5_hd.mp4",
+      "wan": "aula5_ld.mp4"
+    },
+    {
+      "id": 11,
+      "titulo": "Vida Marinha - Aguas-vivas",
+      "descricao": "Natureza",
+      "original": "show1_hd.mp4",
+      "wan": "show1_ld.mp4"
+    },
+    {
+      "id": 12,
+      "titulo": "Big Buck Bunny - A Fruta",
+      "descricao": "Filme",
+      "original": "show2_hd.mp4",
+      "wan": "show2_ld.mp4"
+    },
+    {
+      "id": 13,
+      "titulo": "Sintel - A Neve",
+      "descricao": "Animacao",
+      "original": "show3_hd.mp4",
+      "wan": "show3_ld.mp4"
+    },
+    {
+      "id": 14,
+      "titulo": "Dire Straits - Walk of Life",
+      "descricao": "Musica",
+      "original": "musica1_hd.mp4",
+      "wan": "musica1_ld.mp4"
+    },
+    {
+      "id": 15,
+      "titulo": "Def Leppard - Photograph",
+      "descricao": "Musica",
+      "original": "musica2_hd.mp4",
+      "wan": "musica2_ld.mp4"
+    },
+    {
+      "id": 16,
+      "titulo": "blink-182 - First Date",
+      "descricao": "Musica",
+      "original": "musica3_hd.mp4",
+      "wan": "musica3_ld.mp4"
+    },
+    {
+      "id": 17,
+      "titulo": "Men At Work - Down Under",
+      "descricao": "Musica",
+      "original": "musica4_hd.mp4",
+      "wan": "musica4_ld.mp4"
+    },
+    {
+      "id": 18,
+      "titulo": "Post Malone - Circles",
+      "descricao": "Musica",
+      "original": "musica5_hd.mp4",
+      "wan": "musica5_ld.mp4"
+    }
+  ],
+  "channels": [
+    {
+      "id": 1,
+      "number": 1,
+      "name": "Big Buck Bunny - Abertura",
+      "description": "Filme",
+      "videoId": 1
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "name": "Big Buck Bunny - A Borboleta",
+      "description": "Filme",
+      "videoId": 2
+    },
+    {
+      "id": 3,
+      "number": 3,
+      "name": "Big Buck Bunny - O Esquilo",
+      "description": "Filme",
+      "videoId": 3
+    },
+    {
+      "id": 4,
+      "number": 4,
+      "name": "Big Buck Bunny - A Vinganca",
+      "description": "Filme",
+      "videoId": 4
+    },
+    {
+      "id": 5,
+      "number": 5,
+      "name": "Big Buck Bunny - O Final",
+      "description": "Filme",
+      "videoId": 5
+    },
+    {
+      "id": 6,
+      "number": 6,
+      "name": "Sintel - O Filhote",
+      "description": "Animacao",
+      "videoId": 6
+    },
+    {
+      "id": 7,
+      "number": 7,
+      "name": "Sintel - A Jornada",
+      "description": "Animacao",
+      "videoId": 7
+    },
+    {
+      "id": 8,
+      "number": 8,
+      "name": "Sintel - A Caverna",
+      "description": "Animacao",
+      "videoId": 8
+    },
+    {
+      "id": 9,
+      "number": 9,
+      "name": "Sintel - O Reencontro",
+      "description": "Animacao",
+      "videoId": 9
+    },
+    {
+      "id": 10,
+      "number": 10,
+      "name": "Sintel - A Batalha",
+      "description": "Animacao",
+      "videoId": 10
+    },
+    {
+      "id": 11,
+      "number": 11,
+      "name": "Vida Marinha - Aguas-vivas",
+      "description": "Natureza",
+      "videoId": 11
+    },
+    {
+      "id": 12,
+      "number": 12,
+      "name": "Big Buck Bunny - A Fruta",
+      "description": "Filme",
+      "videoId": 12
+    },
+    {
+      "id": 13,
+      "number": 13,
+      "name": "Sintel - A Neve",
+      "description": "Animacao",
+      "videoId": 13
+    },
+    {
+      "id": 14,
+      "number": 14,
+      "name": "Dire Straits - Walk of Life",
+      "description": "Musica",
+      "videoId": 14
+    },
+    {
+      "id": 15,
+      "number": 15,
+      "name": "Def Leppard - Photograph",
+      "description": "Musica",
+      "videoId": 15
+    },
+    {
+      "id": 16,
+      "number": 16,
+      "name": "blink-182 - First Date",
+      "description": "Musica",
+      "videoId": 16
+    },
+    {
+      "id": 17,
+      "number": 17,
+      "name": "Men At Work - Down Under",
+      "description": "Musica",
+      "videoId": 17
+    },
+    {
+      "id": 18,
+      "number": 18,
+      "name": "Post Malone - Circles",
+      "description": "Musica",
+      "videoId": 18
+    }
+  ]
+}

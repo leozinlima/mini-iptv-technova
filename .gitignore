@@ -1,0 +1,7 @@
+# chaves OAuth (o authserver gera sozinho no primeiro boot)
+backend/data/oauth_private.pem
+backend/data/oauth_public.pem
+
+# temporarios
+*.log
+node_modules/
