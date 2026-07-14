@@ -225,11 +225,18 @@ As placas na VM são `enp0s3`/`enp0s8` — **os scripts detectam sozinhos**, nã
 
 ## 6. Usar / demonstrar
 
-Nas VMs **X** e **Y**, abra o navegador em:
+Nas VMs **X** e **Y**, abra o navegador **pelo IP** (evita o falso "site enganoso" do Firefox):
 
+```bash
+firefox http://172.16.0.1 &
 ```
-http://iptv.tecnova.com.br        (ou http://172.16.0.1)
-```
+
+> **IMPORTANTE (senão o login falha com `redirect_uri ausente`):**
+> - Abra pela **raiz** (`http://172.16.0.1`) e **clique no botão "Entrar"**. **Não** digite
+>   `/oauth/authorize` na mão — quem monta a URL certa (com `redirect_uri`) é o botão.
+> - Use o **IP `172.16.0.1`**, não o nome `iptv.tecnova.com.br`. O Firefox marca o nome como
+>   "Site enganoso!" e, ao passar por esse aviso, **derruba os parâmetros** da URL. Pelo IP não
+>   aparece esse aviso. (Se ainda aparecer, veja a Parte 8.)
 
 - Login OAuth2: **joao/123** e **maria/123** (perfil WAN), **admin/admin** (painel de administração).
 - Clique **Assistir** num canal. O perfil WAN toca **1 canal por vez** (é a regra do enunciado);
@@ -268,5 +275,7 @@ Ou simplesmente desligue as VMs.
 | Vídeo dos últimos canais não toca | R2 com `NCH` antigo (rotas de multicast faltando) | confira `NCH` em `scripts/common/vars.env` e rode `R2/04` de novo |
 | X/Y sem IP | DHCP (R2) parado ou rotas caídas | conferir `R2/03` e `R2/04`; `systemctl status isc-dhcp-server` |
 | Portal não abre em X | Apache/proxy ou rede | no R1: `curl http://127.0.0.1/api/channels`; conferir `R1/04` |
+| Login dá **`redirect_uri ausente`** / **"Site enganoso!"** | Firefox derruba os parâmetros ao passar pelo aviso | abra pela **raiz e pelo IP** (`http://172.16.0.1`) e **clique no botão Entrar**. Se persistir, desligue o Safe Browsing: Configurações → Privacidade e Segurança → desmarque "Bloquear conteúdo perigoso e enganoso" |
+| **Firefox travado** ("already running, but is not responding") | processo do Firefox preso (o script abriu um antes) | `pkill -9 firefox; sleep 2` e reabra: `firefox http://172.16.0.1 &` |
 | Cliente aparece como perfil LAN em vez de WAN | X-Forwarded-For | já corrigido no gateway; confirme que rodou o `R1/04` atual |
 | Vídeo trava na WAN | fluxo grande demais | o perfil WAN já usa `*_ld.mp4` (~80 kbps) — é o esperado |
