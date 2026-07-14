@@ -156,13 +156,23 @@ ping -c2 github.com          # tem que resolver (via NAT do R1)
 git clone https://github.com/leozinlima/mini-iptv-technova.git ~/mini-iptv-vm
 ```
 
-**R2, X, Y** — **NÃO dá pra clonar** (só teriam internet depois do PPP, que precisa deles já
-prontos). Leve a pasta por **pendrive** (use o `mini-iptv-vm.zip`):
-```bash
-cp /media/$USER/*/mini-iptv-vm.zip ~/ && cd ~ && unzip -o mini-iptv-vm.zip
-```
+**R2, X, Y** — no começo não têm internet (só teriam depois do PPP, que precisa deles já
+prontos). O jeito mais fácil de dar internet **temporária** pra clonar é uma **placa NAT extra**:
 
-> Por isso a Estratégia A é melhor: baixa 1x, clona 5, e ninguém fica sem a pasta.
+1. Com a VM **desligada** → VirtualBox → **Configurações → Rede → Adaptador 2** → ☑ Habilitar →
+   **Conectada a: NAT** → OK. (Ou `VBoxManage modifyvm "R2" --nic2 nat`.)
+2. Ligue a VM e clone:
+   ```bash
+   git clone https://github.com/leozinlima/mini-iptv-technova.git ~/mini-iptv-vm
+   ```
+3. **Desligue e DESABILITE o Adaptador 2** de novo (a VM tem que sair pela WAN/PPP, não por NAT
+   próprio). (Ou `VBoxManage modifyvm "R2" --nic2 none`.)
+
+> Resolvendo o **R2** assim, depois que ele subir (PPP + DHCP + `R2/04`) e o R1 fizer NAT, o **X e
+> o Y pegam internet sozinhos** e clonam direto — ou use o mesmo truque da placa NAT neles.
+>
+> **Pendrive costuma falhar** no VirtualBox (precisa do Extension Pack). Prefira a placa NAT acima.
+> Por isso a **Estratégia A é a melhor**: baixa 1x, clona 5, e ninguém fica sem a pasta.
 
 ---
 
@@ -251,7 +261,8 @@ Ou simplesmente desligue as VMs.
 
 | Sintoma | Causa provável | Solução |
 |---|---|---|
-| `git clone` diz **"Could not resolve host"** | VM sem internet/DNS | é a Estratégia B: só R1/S clonam; R2/X/Y por pendrive. Ou use a Estratégia A. |
+| `git clone` diz **"Could not resolve host"** | VM sem internet/DNS | R2/X/Y: habilite um **Adaptador 2 = NAT** temporário, clone, e desabilite (ver Parte 4-B). Ou use a Estratégia A. |
+| Pendrive não aparece na VM | falta o VirtualBox Extension Pack / USB | esqueça o pendrive: use a **placa NAT temporária** (Parte 4-B) |
 | R1 sem internet | placa NAT (`enp0s3`) com config estática antiga | `sudo nmcli con delete iptv-enp0s3; sudo nmcli con add type ethernet ifname enp0s3 con-name nat ipv4.method auto; sudo nmcli con up nat` |
 | `ppp0` não sobe | o outro lado ainda não rodou o PPP | rode `R1/05` e `R2/02`; o R2 reconecta sozinho |
 | Vídeo dos últimos canais não toca | R2 com `NCH` antigo (rotas de multicast faltando) | confira `NCH` em `scripts/common/vars.env` e rode `R2/04` de novo |
